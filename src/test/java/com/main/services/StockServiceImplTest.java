@@ -1,5 +1,5 @@
 package com.main.services;
-/*package com.main.app.services;
+package com.main.app.services;
 
 import static org.junit.Assert.*;
 import java.util.List;
@@ -50,4 +50,3 @@ public class StockServiceImplTest {
 	}
 
 }
-*/

@@ -1,5 +1,4 @@
 package com.main.services;
-/*package com.main.app.services;
 
 import static org.junit.Assert.*;
 
@@ -83,4 +82,3 @@ public class ClientServiceImplTest {
 	}
 
 }
-*/
