@@ -1,6 +1,4 @@
-package com.main.services;
-/*
- package com.main.app.services;
+package com.tests.services;
  
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -21,9 +19,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.main.app.entities.Facture;
-import com.main.app.entities.Operateur;
-import com.main.app.entities.Produit;
+import com.main.entities.Facture;
+import com.main.entities.Operateur;
+import com.main.entities.Produit;
+import com.main.services.IOperateurService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,7 +33,7 @@ public class OperateurServiceImplTest {
 
 	@Autowired
 	IOperateurService operateurService; 
-	/*@Test
+	@Test
 	public void testAddOperator() throws ParseException {
 		Set<Facture> facture = new HashSet<>();
 		Operateur o = new Operateur(null, "Operator1", "Operator2", "pwd", facture);
@@ -45,8 +44,8 @@ public class OperateurServiceImplTest {
 		operateurService.deleteOperateur(operateur.getIdOperateur());
 		log.info("Operator 	added successfully");
 
-	}*/
-	/*@Test
+	}
+	@Test
 	public void testDeleteOperator() throws ParseException {
 		Set<Facture> facture = new HashSet<>();
 		Operateur o = new Operateur(null, "Operator1", "Operator2", "pwd", facture);
@@ -70,4 +69,3 @@ public class OperateurServiceImplTest {
 	}
 
 }
-*/

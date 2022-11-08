@@ -1,5 +1,4 @@
-package com.main.services;
-package com.main.app.services;
+package com.tests.services;
 
 import static org.junit.Assert.*;
 import java.util.List;
@@ -8,7 +7,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import com.main.app.entities.Stock;
+import com.main.entities.Stock;
+import com.main.services.IStockService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

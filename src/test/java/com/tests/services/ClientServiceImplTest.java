@@ -1,4 +1,4 @@
-package com.main.services;
+/* package com.tests.services;
 
 import static org.junit.Assert.*;
 
@@ -13,9 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.main.app.entities.CategorieClient;
-import com.main.app.entities.Client;
-import com.main.app.entities.Profession;
+import com.main.entities.Cat;
+import com.main.entities.Client;
+import com.main.entities.Profession;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -82,3 +82,4 @@ public class ClientServiceImplTest {
 	}
 
 }
+*/

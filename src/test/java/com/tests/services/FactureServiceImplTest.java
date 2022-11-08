@@ -1,4 +1,4 @@
-package com.main.services;
+package com.tests.services;
 
 import java.util.List;
 
