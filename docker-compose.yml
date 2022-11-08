@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  mysqldb1:
+   container_name: mysqldb1
+   image: mysql:5.6
+   restart: always
+   environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: achatdb
+    MYSQL_ROOT: root
+    MYSQL_PASSWORD: root
+    MYSQL_HOST: mysqldb1
+   ports:
+    - 3307:3306    
+
+   healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
+   volumes:
+     - /home/mysql/data:/var/lib/mysql --user 1000
+
+  spring_app:
+   image: khaledsaidi1/achatapp_testt
+   container_name: achatapp_test
+   ports:
+    - 8089:8089
+   environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb1:3306/achatdb?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: achatdb
+   restart: on-failure
+   links:
+      - mysqldb1
