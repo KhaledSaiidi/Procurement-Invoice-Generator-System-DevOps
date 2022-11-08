@@ -1,4 +1,4 @@
-/* package com.tests.services;
+package com.tests.services;
 
 import static org.junit.Assert.*;
 
@@ -13,9 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.main.entities.Cat;
+import com.main.entities.CategorieClient;
 import com.main.entities.Client;
-import com.main.entities.Profession;
+import com.main.services.IClientService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,57 +29,17 @@ public class ClientServiceImplTest {
 
 	
 	@Test
-	public void testAddClient() throws ParseException {
-
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		Date dateNaissance = dateFormat.parse("30/09/2000");
-		Client c = new Client("Salhi", "Ahmed", dateNaissance, "ahmed.salhi@esprit.tn", "pwd", Profession.Cadre,
-				CategorieClient.Ordinaire);
-		Client client = clientService.addClient(c);
-		System.out.print("client "+client);
-		assertNotNull(client.getIdClient());
-		assertNotNull(client.getCategorieClient());
-		assertTrue(client.getNom().length() > 0);
-		clientService.deleteClient(client.getIdClient());
-
-	}
-	@Test
-	public void testDeleteClient() throws ParseException {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		Date dateNaissance = dateFormat.parse("30/09/2000");
-		Client c = new Client("Salhi", "Ahmed", dateNaissance, "ahmed.salhi@esprit.tn", "pwd", Profession.Cadre,
-				CategorieClient.Ordinaire);
-		Client client = clientService.addClient(c);
-		clientService.deleteClient(client.getIdClient());
-		assertNull(clientService.retrieveClient(client.getIdClient()));
-	}
-
-	@Test
 	public void testRetrieveAllClients() throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date dateNaissance = dateFormat.parse("30/09/2000");
 		List<Client> clients = clientService.retrieveAllClients();
 		int expected = clients.size();
-		Client c = new Client("Salhi", "Ahmed", dateNaissance, "ahmed.salhi@esprit.tn", "pwd", Profession.Cadre,
-				CategorieClient.Ordinaire);
-		Client client = clientService.addClient(c);
+		Client c = new Client("Salhi", "Ahmed", dateNaissance, "ahmed.salhi@esprit.tn", "pwd", 
+				CategorieClient.ORDINAIRE);
 		assertEquals(expected + 1, clientService.retrieveAllClients().size());
-		clientService.deleteClient(client.getIdClient());
+		
 
 	}
-	@Test
-	public void testGetClientsByDateNaissance() throws ParseException
-	{
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		Date startDate = dateFormat.parse("28/09/2000");
-		Date endDate = dateFormat.parse("30/09/2005");
-		List<Client> clients = clientService.getClientsByDateNaissance(startDate, endDate);
-		log.info(" count" + clients.size());
-		for (Client client : clients) {
-			log.info(" client : " + client.getNom()+ " né le "+client.getDateNaissance());
-
-		}
-	}
+	
 
 }
-*/
