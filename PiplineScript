@@ -1,35 +1,53 @@
 pipeline {
+
     agent any 
+   
+   
     tools {
         maven 'M2_HOME' 
     }
+   
+   
     environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
 	}
+  
+  
+  
     stages {
           		
+       
+       
         stage('Compilation du Projet'){
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/KhaledSaiidi/Procurement-Invoice-Generator-System.git']]])
              sh 'mvn clean install'
             }  
         }
+      
+      
         stage('Package') {
             steps {
                 sh 'mvn package'
                 // bat '.\\mvnw package'
             } 
         }
+      
+      
          stage('MOCKITO') {
             steps {
            sh 'mvn clean test -Dtest=com.main.services.FactureServiceMockTest' 
             }
         }
+      
+      
          stage('JUNIT') {
             steps {
             sh 'mvn clean test -Dtest=com.main.services.FactureServiceImplTest -Dmaven.test.failure.ignore=true'  
             }
         }
+      
+      
         stage('MVN SONARQUBE') {
             steps {
                 sh 'mvn sonar:sonar  -Dsonar.login=admin -Dsonar.password=@@@@@'
@@ -37,52 +55,73 @@ pipeline {
             }
 
         } 
+      
+      
        stage('NEXUS'){
             steps{
                 sh 'mvn deploy -DskipStaging=true '
             }
        }
+      
+      
         stage('Build') {
 
 			steps {
 				sh 'docker build -t khaledsaidi1/achatapp_testt:latest .'
 			}
 		}
-		stage('Login') {
+		
+        
+        stage('Login') {
 
 			steps {
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u khaledsaidi1 --password @@@@@.'
 			}
 		}
 
-		stage('Push') {
+		
+        
+        stage('Push') {
 
 			steps {
 				sh 'docker push khaledsaidi1/achatapp_testt:latest'
 			}
 		} 
-		 stage('Start container') {
+		 
+        
+        
+         stage('Start container') {
              steps {
                 sh  'docker-compose -v'
                 sh 'docker-compose up -d '
                 sh 'docker-compose ps'
       }
+
         }
+
+
 }
+
+
   post {
+
         always {
             echo 'This will always run'
         }
+       
         success {
             mail to: "khaled.saidi2@esprit.tn",
                      subject: "Success",
                      body: "Succes on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER} "        
         }
+        
         failure {
                     mail to: "khaled.saidi2@esprit.tn",
                      subject: "Failure",
                      body: "Failure on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL} "     
                 }
+
     }
+
 }
 
