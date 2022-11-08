@@ -13,10 +13,10 @@ Technology:
 * Nexus: For the construction of depot and hosting of artifacts
 * Sonar: To ensure clean code quality, good security, minimize vulnerabilities and redundancies, and resolve more bugs.
 * Docker-Compose, we developed to define and share multi-container applications:
-        - Java -jar to compile and build our project locally.
-        - MySql to create a local database for Junit and Mocks tests.
-        - Sonarqube.
-        - Sonatype/Nexus.
+    Java -jar to compile and build our project locally.
+    MySql to create a local database for Junit and Mocks tests.
+    Sonarqube.
+    Sonatype/Nexus.
 
 
 
