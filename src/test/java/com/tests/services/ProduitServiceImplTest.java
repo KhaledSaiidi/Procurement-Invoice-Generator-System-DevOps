@@ -1,6 +1,5 @@
 package com.tests.services;
-/*
-package com.main.app.services;
+
 
 import static org.junit.Assert.*;
 
@@ -15,8 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.main.app.entities.Produit;
-import com.main.app.entities.Stock;
+import com.main.entities.Produit;
+import com.main.entities.Stock;
+import com.main.services.IProduitService;
+import com.main.services.IStockService;
+
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -43,7 +45,7 @@ public class ProduitServiceImplTest {
 		
 	}
 	
-	/*@Test
+	@Test
 	public void testDeleteProduit() throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date dateCreation = dateFormat.parse("15/10/2022");
@@ -54,9 +56,9 @@ public class ProduitServiceImplTest {
 		assertNull(produitService.retrieveProduit(produit.getIdProduit()));
 				log.info("Product deleted successfully");
 
-	}*/
+	}
 	
-/*@Test
+@Test
 	public void testRetrieveAllProduits() throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date dateCreation = dateFormat.parse("15/10/2022");
@@ -69,10 +71,10 @@ public class ProduitServiceImplTest {
 		produitService.deleteProduit(produit.getIdProduit());
 				log.info("Product retrieved successfully");
 
-	}*/
+	}
 	
 	
-/*	@Test
+	@Test
 	public void testAssignProduitToStock() throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date dateCreation = dateFormat.parse("15/10/2022");
@@ -88,7 +90,6 @@ public class ProduitServiceImplTest {
 		produitService.deleteProduit(produit.getIdProduit());
 	     log.info("Product assigned to stock successfully");
 
-	}*/
-/*
+	}
+
 }
-*/
