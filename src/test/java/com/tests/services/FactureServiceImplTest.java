@@ -30,10 +30,7 @@ public class FactureServiceImplTest {
 	    public void testaddFacture() {
 	    	Facture facAdded =  facService.addFacture(f1);
 	        Assertions.assertEquals(facAdded.getIdFacture(), facAdded.getIdFacture());
-	    }
-	    
-	    
-	    
+	    }  
 
 	    @Test
 	    @Order(2)
