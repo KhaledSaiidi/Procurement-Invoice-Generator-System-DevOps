@@ -28,15 +28,15 @@ public class FactureServiceMockTest {
    @InjectMocks
    FactureServiceImpl facService;
 
-   Facture f1 = new Facture(1L, 12, 2);
-   Facture f2 = new Facture(2L, 13, 5);
+   Facture f1 = new Facture(1L, 12, 3);
+   Facture f2 = new Facture(2L, 13, 4);
 
 
     List<Facture> listFactures = new ArrayList<Facture>() {
         {
             add(f1);
-            add(new  Facture(1L, 12, 2));
-            add(new Facture(2L, 13, 5));
+            add(new  Facture(1L, 12, 3));
+            add(new Facture(2L, 13, 4));
         }
     };
 
