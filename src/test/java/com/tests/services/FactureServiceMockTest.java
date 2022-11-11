@@ -59,7 +59,7 @@ public class FactureServiceMockTest {
         assertEquals(facture1.getIdFacture(),1L);
    }
 
-   /* @Test
+    @Test
     public void testretrieveAllFactures() {
         Mockito.when(facRepository.findAll()).thenReturn(listFactures);
         List<Facture> listfacture = facService.retrieveAllFactures();
@@ -68,5 +68,5 @@ public class FactureServiceMockTest {
         System.out.println("2555");
     }
    
-*/
+
 }
