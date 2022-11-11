@@ -1,4 +1,4 @@
-package com.tests.services;
+/* package com.tests.services;
  
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -68,4 +68,4 @@ public class OperateurServiceImplTest {
 
 	}
 
-}
+} */
