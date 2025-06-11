@@ -1,43 +1,59 @@
-Procurement-Invoice-Generator-System-DevOps
+# ⚙️ Procurement Invoice Generator – DevOps Automation
 
-Overview
-Welcome to the Procurement-Invoice-Generator-System-DevOps project. This repository is dedicated to the setup and integration of various DevOps tools for the Procurement Invoice Generator System, which is built using Spring Boot. Our goal is to streamline the development, testing, and deployment processes, ensuring the system's reliability and efficiency.
+This project delivers a robust and fully automated **DevOps pipeline** tailored for a Spring Boot–based procurement system. It leverages infrastructure-as-code and containerization to ensure a reproducible and scalable CI/CD and monitoring setup across virtual environments.
 
-Getting Started
-Let's delve into the key phases of the Procurement-Invoice-Generator-System-DevOps project:
+---
 
-Step 1: Creating the Spring Boot Application
-In the initial step, we focused on developing the backend system using Spring Boot. This system generates invoices for procurement operations between clients and suppliers after product orders. It also ensures that these operations comply with legal requirements for their respective categories.
+## 🚀 Project Objectives
 
-Step 2: Implementing Logging and Unit Testing
-Our commitment to quality extends to implementing some logging and conducting unit testing for the Spring Boot application. This ensures that our system operates reliably and is resilient to potential issues.
+### 🏗️ Infrastructure & Automation
 
-Step 3: Setting up VirtualBox and Vagrant
-The next phase involved setting up VirtualBox and Vagrant. These tools allow us to create and manage virtual development environments, ensuring a consistent and reproducible setup for our DevOps processes.
+- 🧱 **VirtualBox & Vagrant** for reproducible infrastructure.
+- 🖥️ Provision **CentOS-based VMs** for local DevOps labs.
 
-Step 4: Installing Jenkins in CentOS
-Jenkins, a vital component of our DevOps pipeline, was installed on a CentOS server. Jenkins automates continuous integration, ensuring that code changes are regularly integrated and tested.
+### 🔁 CI/CD Pipeline Automation
 
-Step 5: Installing Docker in CentOS
-We also installed Docker on our CentOS server. Docker enables containerization, simplifying the deployment of applications and services while maintaining isolation and reproducibility.
+- ⚙️ Use **Jenkins** to automate build, test, and deployment stages.
+- 🐳 **Dockerize** all components for consistent delivery.
+- 📦 Manage build artifacts with **Nexus Repository**.
+- 🔍 Ensure code quality using **SonarQube**.
 
-Step 6: Nexus in a Docker Container
-Nexus, a repository manager, was set up in a Docker container. This allows us to efficiently manage dependencies and artifacts, enhancing the reliability of our builds.
+### 📊 Monitoring & Observability
 
-Step 7: Sonar in a Docker Container
-In this step, we configured Sonar in a Docker container. Sonar helps maintain code quality by analyzing the Spring Boot project for potential issues and inefficiencies.
+- 📈 Deploy **Prometheus & Grafana** for performance and metrics visualization.
+- 🔗 Ensure the DevOps pipeline is fully observable and auditable.
 
-Step 8: Linking Jenkins to Docker
-Jenkins was connected to Docker to automate the building and deployment of the Spring Boot application. This integration streamlines our continuous integration and continuous delivery (CI/CD) pipeline.
+---
 
-Step 9: Completing the Pipeline with Jenkins
-We designed a Jenkins pipeline that orchestrates the entire DevOps process, from building to testing and deploying the Spring Boot application. This comprehensive pipeline ensures that our system remains reliable and up to date.
+## 🛠️ DevOps Tools Used
 
-Step 10: Setting up Grafana & Prometheus
-To monitor and visualize system performance, we deployed Grafana and Prometheus in Docker containers. This setup enables us to gain insights into the behavior of our application and infrastructure.
+| Tool        | Purpose |
+|-------------|---------|
+| ![Jenkins](https://img.shields.io/badge/Jenkins-%232C5263.svg?style=for-the-badge&logo=jenkins&logoColor=white) | Automates CI/CD processes for the Spring Boot application |
+| ![Docker](https://img.shields.io/badge/Docker-2496ED.svg?style=for-the-badge&logo=docker&logoColor=white) | Containers for deploying SonarQube, Nexus, and monitoring stack |
+| ![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=gradle&logoColor=white) | Builds and tests the Spring Boot application |
+| ![Nexus](https://img.shields.io/badge/Nexus%20Repository-0E1E25.svg?style=for-the-badge&logo=sonatype&logoColor=white) | Hosts Docker images and build artifacts |
+| ![SonarQube](https://img.shields.io/badge/SonarQube-4E9BCD.svg?style=for-the-badge&logo=sonarqube&logoColor=white) | Scans for bugs, vulnerabilities, and code smells |
+| ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C.svg?style=for-the-badge&logo=prometheus&logoColor=white) | Metrics collection and alerting |
+| ![Grafana](https://img.shields.io/badge/Grafana-F46800.svg?style=for-the-badge&logo=grafana&logoColor=white) | Visualizes system and app performance metrics |
+| ![Vagrant](https://img.shields.io/badge/Vagrant-1563FF.svg?style=for-the-badge&logo=vagrant&logoColor=white) | Creates virtualized development environments |
+| ![VirtualBox](https://img.shields.io/badge/VirtualBox-183A61.svg?style=for-the-badge&logo=virtualbox&logoColor=white) | Provides the virtualization layer for infrastructure |
 
-Contribution
-We encourage contributions to this project. If you have ideas, improvements, or bug fixes, feel free to fork this repository and submit pull requests. Collaboration is key to the success of any DevOps project.
+---
 
+## 🔄 DevOps Pipeline Steps
 
+1. **Provision Dev Environment** with Vagrant and VirtualBox using CentOS base image.
+2. **Install & Configure Jenkins** to orchestrate the CI/CD pipeline.
+3. **Set Up Docker** on the VM to run tools and services as containers.
+4. **Deploy Nexus & SonarQube** in Docker for artifact and code quality management.
+5. **Build & Analyze Code** using Gradle + SonarQube.
+6. **Push Docker Images** to Nexus after successful builds.
+7. **Automate Build & Deploy** using Jenkins integrated with Docker.
+8. **Monitor System Metrics** using Prometheus and visualize them via Grafana dashboards.
 
+---
+
+## 📊 Monitoring Snapshot
+
+> The system is continuously monitored through Grafana dashboards powered by Prometheus metrics, enabling rapid identification of performance bottlenecks or infrastructure issues.
